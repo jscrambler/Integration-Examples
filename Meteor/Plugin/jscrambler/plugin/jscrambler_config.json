@@ -1,0 +1,50 @@
+{
+  "keys": {
+    "accessKey": "EF03911EA67AA8542C5A98B1D4779C27B88B9B95",
+    "secretKey": "C1517E2F98423247193E907486436D8D300B2B80"
+  },
+  "host": "api4.jscrambler.com",
+  "port": 443,
+  "applicationId": "5911dea8f0ef190011fd5beb",
+  "params": [
+    {
+      "name": "whitespaceRemoval"
+    },
+    {
+      "name": "identifiersRenaming",
+      "options": {
+        "mode": "SAFEST"
+      }
+    },
+    {
+      "name": "dotToBracketNotation"
+    },
+    {
+      "name": "deadCodeInjection"
+    },
+    {
+      "name": "stringConcealing"
+    },
+    {
+      "name": "functionReordering"
+    },
+    {
+      "options": {
+        "freq": 1,
+        "features": [
+          "opaqueFunctions"
+        ]
+      },
+      "name": "functionOutlining"
+    },
+    {
+      "name": "propertyKeysObfuscation"
+    },
+    {
+      "name": "regexObfuscation"
+    },
+    {
+      "name": "booleanToAnything"
+    }
+  ]
+}
