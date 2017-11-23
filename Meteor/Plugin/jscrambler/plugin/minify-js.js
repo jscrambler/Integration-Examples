@@ -137,6 +137,7 @@ MeteorBabelMinifier.prototype.processFilesForBundle = function(files, options) {
       });
     } else if (/\.min\.js$/.test(filePath)) { // Don't reminify *.min.js.
       toBeAdded.data += file.getContentsAsString();
+      toBeAdded.data += '\n\n';
     } else {
       var minified;
       try {
@@ -162,9 +163,8 @@ MeteorBabelMinifier.prototype.processFilesForBundle = function(files, options) {
       }
 
       toBeAdded.data += minified.code;
+      toBeAdded.data += '\n\n';
     }
-
-    toBeAdded.data += '\n\n';
 
     Plugin.nudge();
   });
@@ -174,6 +174,7 @@ MeteorBabelMinifier.prototype.processFilesForBundle = function(files, options) {
 
   console.log('Protecting files with Jscrambler');
   jscrambler.protectAndDownload(config, (buffer, filePath) => {
+    // add protected files to the resulting bundle
     // protection can return extra files like symbolTable.json, only add files from the actual app
     if (sourcesToProtect.find(s => s.filename === filePath)) {
       toBeAdded.data += buffer.toString('utf-8');

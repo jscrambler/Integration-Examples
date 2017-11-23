@@ -1,7 +1,7 @@
 // Information about this package:
 Package.describe({
   // Short two-sentence summary
-  summary: 'Protects your code using Jscrambler',
+  summary: 'An extension of standard-minifier-js that protects your code using Jscrambler',
   // Version number
   version: '1.0.0',
   // Optional, default is package directory name
