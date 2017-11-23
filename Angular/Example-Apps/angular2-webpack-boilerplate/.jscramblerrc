@@ -1,0 +1,65 @@
+{
+  "keys": {
+    "accessKey": "X",
+    "secretKey": "Y"
+  },
+  "applicationId": "Z",
+  "params": [
+    {
+      "name": "whitespaceRemoval"
+    },
+    {
+      "name": "identifiersRenaming",
+      "options": {
+        "mode": "SAFEST"
+      }
+    },
+    {
+      "name": "dotToBracketNotation"
+    },
+    {
+      "name": "deadCodeInjection"
+    },
+    {
+      "name": "stringConcealing"
+    },
+    {
+      "name": "functionReordering"
+    },
+    {
+      "options": {
+        "freq": 1,
+        "features": [
+          "opaqueFunctions"
+        ]
+      },
+      "name": "functionOutlining"
+    },
+    {
+      "name": "propertyKeysObfuscation"
+    },
+    {
+      "name": "regexObfuscation"
+    },
+    {
+      "name": "booleanToAnything"
+    }
+  ],
+  "areSubscribersOrdered": false,
+  "applicationTypes": {
+    "webBrowserApp": true,
+    "desktopApp": false,
+    "serverApp": false,
+    "hybridMobileApp": false,
+    "javascriptNativeApp": false,
+    "html5GameApp": false
+  },
+  "languageSpecifications": {
+    "es5": true,
+    "es6": false,
+    "es7": false
+  },
+  "useRecommendedOrder": true,
+  "jscramblerVersion": "X.Y",
+  "sourceMaps": false
+}
