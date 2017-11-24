@@ -1,29 +1,19 @@
-[![Circle CI](https://circleci.com/gh/meteor/todos.svg?style=svg)](https://circleci.com/gh/meteor/todos)
+# Meteor Todo App with Jscrambler integrated
 
-This is a Todos example app built on the principles described in the [Meteor Guide](http://guide.meteor.com/structure.html). This app uses the module functionality introduced in Meteor 1.3, but everything else should be applicable to Meteor 1.2 as well.
-
-## Versions
-
-This version (the `master`) branch uses the [Blaze](http://guide.meteor.com/blaze.html) rendering library, with code written in ES2015 JavaScript.
-
-The [`react`](https://github.com/meteor/todos/tree/react) branch implements the same application using [React](http://guide.meteor.com/react.html)
-
-The [`coffeescript`](https://github.com/meteor/todos/tree/coffeescript) branch implements this (the Blaze) version of the app in CoffeeScript.
-
-Note that attempts will be made to keep the branches up to date but this isn't guaranteed.
+This is a Todos example app built on the principles described in the [Meteor Guide](http://guide.meteor.com/structure.html).
 
 ### Running the app
 
+- Complete **packages/jscrambler/plugin/jscrambler_config.json** with your custom configuration (ACCESS\_KEY, SECRET\_KEY, APP\_ID, etc).
+
+Install dependencies: 
+
 ```bash
 meteor npm install
-meteor
 ```
 
-### Scripts
-
-To lint:
+Run in production mode to protect with jscrambler:
 
 ```bash
-meteor npm run lint
+meteor run --production
 ```
-
