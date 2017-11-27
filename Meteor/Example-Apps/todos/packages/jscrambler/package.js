@@ -17,7 +17,7 @@ Package.onUse((api) => {
 Package.registerBuildPlugin({
   name: 'protectWithJscrambler',
   use: [
-    'minifier-js',
+    'minifier-js@2.2.2',
     'babel-compiler',
     'ecmascript'
   ],
