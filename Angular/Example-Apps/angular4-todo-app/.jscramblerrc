@@ -5,8 +5,8 @@
   },
   "applicationId": "Z",
   "filesSrc": [
-    "./dist/**/*.html",
-    "./dist/**/*.js"
+    "./dist/index.html",
+    "./dist/main*.bundle.js"
   ],
   "filesDest": "./",
   "params": [
@@ -65,6 +65,5 @@
     "es7": false
   },
   "useRecommendedOrder": true,
-  "jscramblerVersion": "X.Y",
   "sourceMaps": false
 }

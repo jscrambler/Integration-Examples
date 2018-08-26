@@ -1,36 +1,20 @@
-<section>
-  <header>
-    <h1>Angular todo app</h1>
-    <input
-      placeholder="What needs to be done?"
-      [(ngModel)]="newTodo.title"
-      (keyup.enter)="addTodo()">
+<section class="todoapp">
+  <header class="header">
+    <h1>Todos</h1>
+    <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
   </header>
-  <section *ngIf="incompleteTodos.length > 0">
-    <ul>
-      <li *ngFor="let todo of incompleteTodos">
-        <ng-container>
-          <input type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
+  <section class="main" *ngIf="todos.length > 0">
+    <ul class="todo-list">
+      <li *ngFor="let todo of todos" [class.completed]="todo.complete">
+        <div class="view">
+          <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
           <label>{{todo.title}}</label>
-          <button (click)="removeTodo(todo)">rm</button>
-        </ng-container>
+          <button class="destroy" (click)="removeTodo(todo)"></button>
+        </div>
       </li>
     </ul>
   </section>
-  <section *ngIf="completeTodos.length > 0">
-    <h2>Done</h2>
-    <ul>
-      <li *ngFor="let todo of completeTodos">
-        <ng-container>
-          <input type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
-          <label>{{todo.title}}</label>
-          <button (click)="removeTodo(todo)">rm</button>
-        </ng-container>
-      </li>
-    </ul>
-  </section>
-  <footer *ngIf="allTodos() > 0">
-    <strong>{{allTodos()}}</strong>
-    {{allTodos() == 1 ? 'item' : 'items'}} in list
+  <footer class="footer" *ngIf="todos.length > 0">
+    <span class="todo-count"><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
   </footer>
 </section>
