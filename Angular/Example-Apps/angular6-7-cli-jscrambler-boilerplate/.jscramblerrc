@@ -1,0 +1,69 @@
+{
+  "keys": {
+    "accessKey": "A2CC8452FCDCF7B4938E1690CBDB31FE2063E2D5",
+    "secretKey": "4F7FFF612C338015B6FFF0F5BA98F7E1DD94997B"
+  },
+  "applicationId": "5bf5386403c027001664b62d",
+  "filesSrc": [
+   "./dist/**/*.html",
+   "./dist/**/*.js"
+ ],
+  "filesDest": "./",
+  "params": [
+    {
+      "name": "whitespaceRemoval"
+    },
+    {
+      "name": "identifiersRenaming",
+      "options": {
+        "mode": "SAFEST"
+      }
+    },
+    {
+      "name": "dotToBracketNotation"
+    },
+    {
+      "name": "deadCodeInjection"
+    },
+    {
+      "name": "stringConcealing"
+    },
+    {
+      "name": "functionReordering"
+    },
+    {
+      "options": {
+        "freq": 1,
+        "features": [
+          "opaqueFunctions"
+        ]
+      },
+      "name": "functionOutlining"
+    },
+    {
+      "name": "propertyKeysObfuscation"
+    },
+    {
+      "name": "regexObfuscation"
+    },
+    {
+      "name": "booleanToAnything"
+    }
+  ],
+  "areSubscribersOrdered": false,
+  "applicationTypes": {
+    "webBrowserApp": true,
+    "desktopApp": false,
+    "serverApp": false,
+    "hybridMobileApp": false,
+    "javascriptNativeApp": false,
+    "html5GameApp": false
+  },
+  "languageSpecifications": {
+    "es5": true,
+    "es6": false,
+    "es7": false
+  },
+  "useRecommendedOrder": true,
+  "jscramblerVersion": "5.5"
+}
