@@ -35,7 +35,7 @@ Select the desired configuration. To do it quickly, visit the [Jscrambler Web Ap
 
 Download the **JSON config file**.
 
-<center>![Download Jscrambler JSON](https://blog.jscrambler.com/content/images/2018/08/jscrambler-101-first-use-download-json.png)</center>
+![Download Jscrambler JSON](https://blog.jscrambler.com/content/images/2018/08/jscrambler-101-first-use-download-json.png)
 
 Open `jscrambler.json` and copy all its contents to `.jscramblerrc`. Add two new sections to `.jscramblerrc`: `filesSrc` and `filesDest` (see below). Your final `.jscramblerrc` file should look like this: 
 
@@ -239,7 +239,7 @@ Open the URL and your app will start in the browser.
 
 You can check what your protected files look like by opening the browser's debugger and opening the files from the "Sources" tab. The protected code should look like this:
 
-![Protected Angular 7 Code - Chrome Debugger](/content/images/2018/11/jscrambler-blog-how-to-protect-angular-code-debugger.jpg)
+![Protected Angular 7 Code - Chrome Debugger](https://blog.jscrambler.com/content/images/2018/11/jscrambler-blog-how-to-protect-angular-code-debugger.jpg)
 
 ## Running unit tests
 
