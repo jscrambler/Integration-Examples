@@ -28,7 +28,7 @@ Package.registerBuildPlugin({
     'plugin/utils.js'
   ],
   npmDependencies: {
-    jscrambler: '1.3.3',
+    jscrambler: '5.2.19',
     deasync: '0.1.11'
   }
 });
