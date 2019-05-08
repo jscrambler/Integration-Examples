@@ -14,6 +14,10 @@ A simple cross platform (iOS and Android) React Native timer app. This example w
 
 - `yarn run ios`/`npm run ios` or `yarn run android`/`npm run android`
 
+### Obfuscation
+
+- Add `.jscramblerrc` with the obfuscation configurations
+
 ---
 
 This project was put together to serve as an example to help you in building your own React Native apps. Feel free to download it and tinker with it!
