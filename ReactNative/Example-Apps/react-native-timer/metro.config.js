@@ -10,7 +10,8 @@ for (let i = 0; i < process.argv.length; i++) {
   }
 }
 if (!bundlePath) {
-  throw new Error('Missing --bundle-output option');
+  console.error('Missing --bundle-output option');
+  return;
 }
 
 const mkdirPromise = promisify(fs.mkdir);
@@ -33,7 +34,7 @@ function obfuscateBundle(bundlePath) {
 process.on('beforeExit', function(exitCode) {
   console.log('Obfuscating code');
   obfuscateBundle(bundlePath).catch(err => {
-    console.log('error ' + err);
+    console.error(err);
     process.exit(1);
   }).finally(() => process.exit(exitCode));
 });
