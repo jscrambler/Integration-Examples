@@ -76,14 +76,9 @@ Open `jscrambler.json` and copy all its contents to `.jscramblerrc`. Your final 
    "es6": false,
    "es7": false
  },
- "useRecommendedOrder": true,
- "jscramblerVersion": "6.<X>"
+ "useRecommendedOrder": true
 }
 ```
-
-## Integrating Jscrambler in the Build Process
-
-You can integrate Jscrambler into the React-Native build process with [**Metro**](https://facebook.github.io/metro/).
 
 ### Integrating Jscrambler via Metro
 
@@ -104,7 +99,7 @@ module.exports = jscramblerMetroPlugin;
 Build the application:
 
 ```
-# installDebug requires a attached android device or emulator
+# installDebug requires an attached android device or emulator
 # otherwise you can use assembleDebug
 
 cd android && ./gradlew installDebug
@@ -113,7 +108,7 @@ cd android && ./gradlew installDebug
 or
 
 ```
-# generate javascript bundle
+# generate JavaScript bundle
 react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios
 
 # install and run your code with Xcode
