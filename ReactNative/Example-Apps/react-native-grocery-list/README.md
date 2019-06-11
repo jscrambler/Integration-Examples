@@ -2,7 +2,7 @@
 
 This Demo Application was forked from [React Native School - Grocery List](https://github.com/ReactNativeSchool/react-native-grocery-list)
 
-## Configure Jscrambler
+## Configuring Jscrambler
 
 Create a `.jscramblerrc` file on the project's root folder.
 
@@ -23,19 +23,16 @@ Open `jscrambler.json` and copy all its contents to `.jscramblerrc`. Your final 
  "applicationId": <APP_ID_HERE>,
  "params": [
    {
+     "name": "objectPropertiesSparsing"
+   },
+   {
+     "name": "variableMasking"
+   },
+   {
      "name": "whitespaceRemoval"
    },
    {
-     "name": "identifiersRenaming",
-     "options": {
-       "mode": "SAFEST"
-     }
-   },
-   {
      "name": "dotToBracketNotation"
-   },
-   {
-     "name": "deadCodeInjection"
    },
    {
      "name": "stringConcealing"
@@ -44,22 +41,29 @@ Open `jscrambler.json` and copy all its contents to `.jscramblerrc`. Your final 
      "name": "functionReordering"
    },
    {
+     "name": "propertyKeysObfuscation",
      "options": {
-       "freq": 1,
-       "features": [
-         "opaqueFunctions"
+       "encoding": [
+         "hexadecimal"
        ]
-     },
-     "name": "functionOutlining"
-   },
-   {
-     "name": "propertyKeysObfuscation"
+     }
    },
    {
      "name": "regexObfuscation"
    },
    {
+     "options": {
+       "features": [
+         "opaqueSteps"
+       ]
+     },
+     "name": "controlFlowFlattening"
+   },
+   {
      "name": "booleanToAnything"
+   },
+   {
+     "name": "identifiersRenaming"
    }
  ],
  "areSubscribersOrdered": false,
@@ -82,7 +86,7 @@ Open `jscrambler.json` and copy all its contents to `.jscramblerrc`. Your final 
 
 ### Integrating Jscrambler via Metro
 
-Installing the [Jscrambler Metro Plugin](https://github.com/jscrambler/jscrambler/tree/master/packages/jscrambler-metro-plugin):
+Install the [Jscrambler Metro Plugin](https://github.com/jscrambler/jscrambler/tree/master/packages/jscrambler-metro-plugin):
 
 ```
 npm install jscrambler-metro-plugin --save-dev
@@ -99,7 +103,7 @@ module.exports = jscramblerMetroPlugin;
 Build the application:
 
 ```
-# installDebug requires an attached android device or emulator
+# installDebug requires an attached Android device or emulator
 # otherwise you can use assembleDebug
 
 cd android && ./gradlew installDebug
@@ -115,4 +119,4 @@ react-native bundle --entry-file index.js --platform ios --dev false --bundle-ou
 ```
 
 
-This will create the mobile application package for android (apk) or ios (ipa) on `<android|ios>/app/build/outputs/<apk!ipa>/debug`.
+This will create the mobile application package for Android (apk) or iOS (ipa) on `<android|ios>/app/build/outputs/<apk!ipa>/debug`.
