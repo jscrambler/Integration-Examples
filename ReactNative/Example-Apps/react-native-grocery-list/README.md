@@ -119,4 +119,4 @@ react-native bundle --entry-file index.js --platform ios --dev false --bundle-ou
 ```
 
 
-This will create the mobile application package for Android (apk) or iOS (ipa) on `<android|ios>/app/build/outputs/<apk!ipa>/debug`.
+This will create the mobile application package for Android (apk) or iOS (ipa) on `<android|ios>/app/build/outputs/<apk|ipa>/debug`.
