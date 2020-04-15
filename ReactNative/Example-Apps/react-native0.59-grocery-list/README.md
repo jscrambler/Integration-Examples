@@ -106,7 +106,10 @@ Build the application:
 # installDebug requires an attached Android device or emulator
 # otherwise you can use assembleDebug
 
-cd android && ./gradlew installDebug
+# By default, protection is ignored when bundle mode is set for Development. 
+# To override this behaviour set env variable `JSCRAMBLER_METRO_DEV=true`
+
+cd android && JSCRAMBLER_METRO_DEV=true ./gradlew installDebug
 ```
 
 or
