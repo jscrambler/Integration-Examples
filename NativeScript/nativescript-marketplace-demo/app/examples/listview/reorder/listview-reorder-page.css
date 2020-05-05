@@ -1,0 +1,11 @@
+.notDoneItemStyle{
+   text-decoration: none; 
+}
+
+.doneItemStyle {
+   text-decoration: line-through;
+}
+
+.itemIOS{
+    margin-right: 25;    
+}

@@ -1,0 +1,18 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatingTo="pageNavigatingTo">
+    <Page.actionBar>
+        <ActionBar title="View code" automationText="ActionBar">
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
+        </ActionBar>
+    </Page.actionBar>
+    <GridLayout rows="44, *">
+        <GridLayout row="0" class="code-files-menu-background">
+            <Button text="{{ selectedFileName }}"
+                    ios:horizontalAlignment="center"
+                    android:horizontalAlignment="left"
+                    class="code-files-menu"
+                    tap="selectFile" />
+        </GridLayout>
+        <WebView row="1" src="{{ formattedCode }}" />
+        <ActivityIndicator row="1" busy="{{ isLoading }}" />
+    </GridLayout>
+</Page>

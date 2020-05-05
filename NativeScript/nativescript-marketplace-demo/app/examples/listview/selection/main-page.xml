@@ -1,0 +1,125 @@
+<examples:ExamplePage 
+        xmlns="http://www.nativescript.org/tns.xsd" 
+        xmlns:examples="examples/example-base-page" 
+        xmlns:lv="nativescript-ui-listview"
+        navigatedTo="pageNavigatedTo">
+    <examples:ExamplePage.actionBar>
+        <ActionBar automationText="ActionBar" android:class="{{ (isReorderActive || isSelectionActive) ? 'blue-background' : ''}}">
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
+            <ios>
+                <ActionBar.actionItems>
+                    <ActionItem text="{{ isReorderActive ? 'Done' : 'Edit' }}" tap="{{ onActivateReorderTap }}" ios.position="right"/>
+                    <ActionItem id="exampleMenuButton" ios.position="right" automationText="ExampleMenu" visibility="{{ isReorderActive ? 'collapsed' : 'visible' }}">
+                        <ActionItem.actionView>
+                            <Image src="res://ic_menu_example" width="22" height="22" margin="0, -11, 0, 11" />
+                        </ActionItem.actionView>
+                    </ActionItem>
+                </ActionBar.actionItems>
+                <ActionBar.titleView>
+                    <StackLayout orientation="horizontal">
+                        <Label text="Selection" class="example-title"/>
+                    </StackLayout>
+                </ActionBar.titleView>
+            </ios>
+            <android>
+                <ActionBar.actionItems>
+                    <ActionItem android:icon="res://ic_reorder_action_bar" tap="{{ onActivateReorderTap }}" visibility="{{(isReorderActive || isSelectionActive) ? 'collapsed' : 'visible' }}" />
+                    <ActionItem android:icon="res://ic_add_to_fav" tap="{{ onToggleSelectedFavoriteTap }}" visibility="{{!isSelectionActive ? 'collapsed' : 'visible' }}" />
+                    <ActionItem android:icon="res://ic_delete" tap="{{ onDeleteSelectedTap }}" visibility="{{!isSelectionActive ? 'collapsed' : 'visible' }}" />
+                    <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" automationText="ExampleMenu" />
+                </ActionBar.actionItems>
+                <ActionBar.titleView>
+                    <StackLayout orientation="horizontal">
+                        <Label text="Reorder with toggle" visibility="{{ (isReorderActive || isSelectionActive) ? 'collapsed' : 'visible'}}" class="title-view-item" />
+                        <Label text="Reorder" visibility="{{ (isReorderActive && !isSelectionActive) ? 'visible' : 'collapsed'}}" class="title-view-item"/>
+                        <Label text="{{'' + selectedItemsCount }}" visibility="{{ isSelectionActive ? 'visible' : 'collapsed'}}" class="title-view-item"/>
+                    </StackLayout>
+                </ActionBar.titleView>
+            </android>
+        </ActionBar>
+    </examples:ExamplePage.actionBar>
+    
+    <GridLayout rows="auto, *, auto" backgroundColor="white">
+
+        <GridLayout row="0" columns="*,*" class="blue-background" opacity="{{ (isReorderActive || isSelectionActive) ? '0.4' : '1'}}">
+            <StackLayout orientation="vertical">
+                <Button text="All" tap="{{ onTap_AllMode }}" class="{{ Mode == 'ALL' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}" isEnabled="{{ !(isReorderActive || isSelectionActive) }}"/>
+                <GridLayout class="{{ Mode === 'ALL' ? 'selectedBarItemBottomBorder' : 'barItemBottomBorder'}}"/>
+            </StackLayout>
+            <StackLayout col="1" orientation="vertical">
+                <Button text="Favorites" tap="{{ onTap_FavoritesMode }}" class="{{ Mode == 'FAVOURITES' ? 'modeSelectedButtonStyle' : 'modeButtonStyle' }}" isEnabled="{{ !(isReorderActive || isSelectionActive) }}"/>
+                <GridLayout class="{{ Mode === 'FAVOURITES' ? 'selectedBarItemBottomBorder' : 'barItemBottomBorder'}}"/>
+            </StackLayout>
+        </GridLayout>
+        
+        <lv:RadListView row="1" id="list-view" loaded="listViewLoaded"
+            items="{{ lvItems }}" 
+            itemSelected="{{onItemSelected}}"
+            itemDeselected="{{onItemDeselected}}"
+            itemReorder="{{isReorderActive ? true : false}}"
+            ios:itemReordered="{{onItemReordered}}"
+            reorderMode="Drag"
+            itemSwipeProgressStarted="{{onStartSwipeCell}}"
+            itemSwipeProgressEnded="{{onCellSwiped}}"
+            ios:swipeActions="{{isReorderActive ? false : true}}"
+            android:swipeActions="{{isReorderActive ? false : true}}"
+            itemTap="{{ onItemTap }}">
+        
+        <lv:RadListView.listViewLayout>
+            <lv:ListViewLinearLayout scrollDirection="Vertical" itemInsertAnimation="Default" itemDeleteAnimation="Default"/>
+        </lv:RadListView.listViewLayout>
+        
+        <lv:RadListView.itemSwipeTemplate>
+            <GridLayout columns="100, *, 100" >
+                <GridLayout id="swipe-fav" tap="{{ onTap_SetAsFavourite }}" class="swipe-fav">
+                    <Image ios:src="res://listview/selection/ic_add_to_fav" android:src="res://ic_add_to_fav" stretch="none" class="swipedImageStyle" />
+                </GridLayout>
+                <GridLayout id="swipe-del" col="2" tap="{{ onTap_DeletePost }}" class="swipe-del">
+                    <Image ios:src="res://listview/selection/ic_delete" android:src="res://ic_delete" stretch="none" class="swipedImageStyle"/>
+                </GridLayout>
+            </GridLayout>
+        </lv:RadListView.itemSwipeTemplate>
+
+        <lv:RadListView.itemTemplate>
+            <ios>
+                <GridLayout columns="auto, *, auto" backgroundColor="{{ reorderActive ? 'transparent' : 'white' }}" padding="8">
+                    <Image col="0" src="{{ isSelected ? 'res://listview/selection/ic_checked' : 'res://listview/selection/ic_unchecked'}}" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" class="check-box" />
+
+                    <GridLayout col="1" columns="auto, *" rows="auto,*">
+                        <Image row="0" col="0" margin="5" src="res://listview/selection/ic_fav" opacity="{{ IsFavourite ? '1' : '0' }}"/>
+                        <Label row="0" col="1" text="{{ Title }}" class="titleStyle" textWrap="true"/>
+                        <Label row="1" col="1" text="{{ Summary }}" ios.numberOfLines="3" class="contentStyle" textWrap="true"/>
+                    </GridLayout>
+                    <lv:ReorderHandle col="2" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" verticalAlignment="center">
+                        <Image src="res://listview/selection/ic_reorder" class="reorder-handle" />
+                    </lv:ReorderHandle>
+                </GridLayout>
+            </ios>
+            <android>
+                <GridLayout columns="auto, *" longPress="{{ onLongPressDummyHandler }}" class="{{ isSelected ? 'itemSelectedStyle' : 'itemStyle' }}">
+                    <lv:ReorderHandle col="0" visibility="{{ reorderActive ? 'visible' : 'collapsed' }}" verticalAlignment="center">
+                        <Image src="res://ic_reorder" class="reorder-handle"/>
+                    </lv:ReorderHandle>
+                    <GridLayout col="1" columns="auto, *" rows="auto,*">
+                        <Image row="0" col="0" margin="5" src="res://ic_fav" opacity="{{ IsFavourite ? '1' : '0' }}" />
+                        <Label row="0" col="1" text="{{ Title }}" class="titleStyle" textWrap="true"/>
+                        <Label row="1" col="1" text="{{ Summary }}" class="contentStyle" textWrap="true"/>
+                    </GridLayout>
+                </GridLayout>
+            </android>
+        </lv:RadListView.itemTemplate>
+    </lv:RadListView>
+    
+    <ios>
+        <GridLayout row="2" columns="*, *" class="blue-background" visibility="{{ isReorderActive === true ? 'visible' : 'collapsed'}}" >
+            <GridLayout col="0" tap="{{ onToggleSelectedFavoriteTap }}" verticalAlignment="center">
+                <Image src="res://listview/selection/ic_add_to_fav" stretch="none" class="blue-button"/>
+            </GridLayout>
+            <GridLayout col="1" tap="{{ onDeleteSelectedTap }}" verticalAlignment="center">
+                <Image src="res://listview/selection/ic_delete" stretch="none" class="blue-button" />
+            </GridLayout>
+        </GridLayout>
+    </ios>
+
+    </GridLayout>
+</examples:ExamplePage>

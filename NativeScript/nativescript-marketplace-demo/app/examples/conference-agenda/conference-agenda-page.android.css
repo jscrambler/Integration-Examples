@@ -1,0 +1,68 @@
+﻿.conf-segmented-bar {
+    background-color: #4ac1fa;
+    color: white;
+}
+
+SearchBar {
+    background-color: white;
+    margin: 16;
+}
+
+.session-favorite {
+    vertical-align: center;
+    horizontal-align: center;
+    margin: 0 26 0 16;
+}
+
+@keyframes session-favorite-selected {
+    from { transform: scale(1, 1) rotate(-120); opacity: 0; animation-timing-function: linear; }
+    50% { transform: scale(2, 2) rotate(-60); opacity: 0.3; animation-timint-function: ease-in; }
+    to { transform: scale(1, 1) rotate(0); opacity: 1; }    
+}
+
+.session-favorite-selected {
+    animation-name: session-favorite-selected;
+    animation-duration: 0.4;
+    vertical-align: center;
+    horizontal-align: center;
+    margin: 0 26 0 16;
+}
+
+@keyframes session-favorite-unselected {
+    from { transform: scale(1, 1) rotate(120); opacity: 0; animation-timing-function: linear; }
+    60% { transform: scale(2, 2) rotate(60); opacity: 0.3; animation-timint-function: ease-in; }
+    to { transform: scale(1, 1) rotate(0); opacity: 1; }    
+}
+
+.session-favorite-unselected {
+    animation-name: session-favorite-unselected;
+    animation-duration: 0.2;
+    vertical-align: center;
+    horizontal-align: center;
+    margin: 0 26 0 16;
+}
+
+.session-time {
+    font-family: "sans-serif";
+    /*font-weight: 700;*/
+	font-size: 12;
+    color: #4ac1fa;
+    margin-top: 16;
+}
+
+.session-room {
+    font-family: "sans-serif";
+    /*font-weight: 700;*/
+	font-size: 12;
+	color: white;
+    text-transform: uppercase;
+    margin: 16 0 0 4;
+}
+
+.session-title {
+    font-family: "sans-serif";
+    /*font-weight: 300;*/
+	font-size: 20;
+	color: #c3c3c3;
+    margin-bottom: 16;
+}

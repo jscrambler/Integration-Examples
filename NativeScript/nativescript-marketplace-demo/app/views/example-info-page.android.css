@@ -1,0 +1,33 @@
+@import url('./example-info-page-common.css');
+
+.info-title {
+    font-size: 26;
+    margin: 36 0 36 0;
+    padding: 0;
+    horizontal-align: center;
+}
+
+.info-text {
+    font-size: 15;
+    margin: 0 16 20 16;
+    padding: 0;
+    text-align: center;
+}
+
+.info-link-button {
+    font-size: 14;
+    margin: 0 0 10 0;
+    horizontal-align: center;
+    color: #3C5AFD;
+    width: auto;
+    background-color: transparent;
+    z-index: 0
+}
+
+.info-link-button-documentation {
+    padding: 0 22;
+    width: auto;
+    background-image: url("res://ic_outside_link");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+}

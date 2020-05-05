@@ -1,0 +1,37 @@
+dependencies {
+  compile "com.google.android.gms:play-services-base:15.0.1"
+}
+
+android {  
+  defaultConfig {  
+    generatedDensities = []
+    multiDexEnabled true
+    applicationId = "org.nativescript.examples"
+  }  
+  aaptOptions {  
+    additionalParameters "--no-version-vectors"  
+  }
+
+  project.ext {
+    googlePlayServicesVersion = "15.0.1"
+  } 
+
+  dexOptions {
+    jumboMode true
+    javaMaxHeapSize "4g"
+  }
+} 
+def settingsGradlePath
+
+if(project.hasProperty("appResourcesPath")){
+    settingsGradlePath = "$project.appResourcesPath/Android/settings.gradle";
+} else {
+    settingsGradlePath = "$rootDir/../../app/App_Resources/Android/settings.gradle";
+}
+
+def settingsGradleFile = new File(settingsGradlePath);
+
+if(settingsGradleFile.exists())
+{
+    apply from: settingsGradleFile;
+}

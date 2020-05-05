@@ -1,0 +1,52 @@
+@import url('./main-page-common.css');
+
+.example-title {
+    color: white;
+    font-size: 20;
+}
+
+.modeSelectedButtonStyle {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 15;
+    color: white;
+    padding: 10;
+}
+
+.modeButtonStyle {
+    color: white;
+    font-size: 15;
+    horizontal-align: center;
+    vertical-align: center;
+    padding: 10;
+}
+
+.titleStyle {
+    font-family: "Georgia";
+    font-size: 16;
+    color: #455b66;
+    margin-left: 10;
+}
+
+.contentStyle {
+    font-size: 14;
+    color: #677881;
+    margin-top: 4;
+    margin-left: 10;
+    margin-right: 10;
+    margin-bottom: 4;
+}
+
+.blue-button {
+    horizontal-align: center;
+    vertical-align: center;
+    margin: 12 0;
+}
+
+.reorder-handle {
+    margin: 16;
+}
+
+.check-box {
+    margin: 2; 
+}

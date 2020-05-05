@@ -1,0 +1,56 @@
+@import url('app-common.css');
+
+.drawer-item {
+    padding: 12;
+    font-size: 17;
+}
+
+.drawer-controls-title{
+    margin: 8 10 0 10;
+    font-size: 14;
+}
+
+.example-types-bar {
+    color: white;
+    margin: 8 12 8 12;
+}
+
+.example-title-list, .example-title-wrap {
+    color: black;
+    margin: 3;
+}
+.example-title-list {
+    font-size: 19;
+    horizontal-align: left;
+}
+.example-title-wrap {
+    font-size: 17;
+    horizontal-align: center;
+}
+
+.used-controls-list, .used-controls-wrap{
+    vertical-align: top;
+    font-weight: bold;
+    color: #95959E;
+}
+.used-controls-list {
+    margin: 3;
+    font-size: 17;
+}
+.used-controls-wrap {
+    margin: 12;
+    font-size: 15;
+}
+
+.marginated-content{
+    margin: 0 16;
+}
+
+.example-menu-item {
+    font-size: 15;
+}
+
+.drawer-button,
+.drawer-button-external {
+    font-size: 13;
+}

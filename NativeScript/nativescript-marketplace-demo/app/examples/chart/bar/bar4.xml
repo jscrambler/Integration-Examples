@@ -1,0 +1,34 @@
+<GridLayout rows="auto, *" xmlns:chart="nativescript-ui-chart">
+    <Label text="Monthly sales revenue, 2016" class="chart-example-tytle-style" textWrap="true"/>
+    <chart:RadCartesianChart row="1" id="chart" selectionMode="Single">
+        <chart:RadCartesianChart.horizontalAxis>
+            <chart:LinearAxis lineColor="#b0b0b0" lineThickness="1" />
+        </chart:RadCartesianChart.horizontalAxis>
+        <chart:RadCartesianChart.verticalAxis>
+            <chart:CategoricalAxis lineColor="#b0b0b0" lineThickness="1" />
+        </chart:RadCartesianChart.verticalAxis>
+        <chart:RadCartesianChart.series>
+            <chart:BarSeries seriesName="Bar" categoryProperty="Category" items="{{ categoricalSource }}" valueProperty="Amount" selectionMode="DataPoint" />
+        </chart:RadCartesianChart.series>
+        <chart:RadCartesianChart.grid>
+            <chart:RadCartesianChartGrid horizontalLinesVisible="true" 
+                verticalLinesVisible="false" 
+                verticalStripLinesVisible="false" 
+                horizontalStrokeColor="#e5e5e5"
+                verticalStripLineColor="#00000000, #00000000"
+                horizontalStripLineColor="#f8f8f8, #00000000"/>
+        </chart:RadCartesianChart.grid>
+         <chart:RadCartesianChart.palettes>
+            <chart:Palette seriesName="Bar">
+                <chart:Palette.entries>
+                    <chart:PaletteEntry fillColor="#08caab" strokeWidth="0" android:strokeColor="#08caab" />
+                </chart:Palette.entries>
+            </chart:Palette>
+            <chart:Palette seriesName="Bar" seriesState="Selected">
+                <chart:Palette.entries>
+                    <chart:PaletteEntry fillColor="#08caab" strokeColor="#026555" strokeWidth="2" />
+                </chart:Palette.entries>
+            </chart:Palette> 
+        </chart:RadCartesianChart.palettes>
+    </chart:RadCartesianChart>
+</GridLayout>
