@@ -136,7 +136,9 @@ function RunNativeButton() {
       title="Click Me to Run Native Code!"
       onPress={Platform.select({
         ios: () => {
-          console.log('Nothing to do');
+          NativeModules.CustomAlert.showMessage(
+            'This is from JS'
+          );
         },
         android: () =>
           NativeModules.MyToastExample.show(
