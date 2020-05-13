@@ -3,5 +3,5 @@
 using namespace std;
 
 string greet(){
-  return "Helloooo C++";
+  return "Hello from C++";
 };

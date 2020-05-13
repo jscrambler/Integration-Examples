@@ -6,4 +6,5 @@ set (CMAKE_CXX_STANDARD 11)
 add_library(grocerylist-cpp
   SHARED
   cpp-adapter.cpp
+  ./src/Hello.cpp
 )
