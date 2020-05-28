@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Platform} from 'react-native';
+import {Image, Platform, Button, NativeModules} from 'react-native';
 import 'react-native-get-random-values'; // https://www.npmjs.com/package/uuid#getrandomvalues-not-supported
 import {enableScreens} from 'react-native-screens';
 import {NavigationContainer} from '@react-navigation/native';
@@ -89,7 +89,63 @@ export default function AppNavigation() {
             },
           }}
         />
+        <Tab.Screen
+          name="NativeCodeScreen"
+          component={TestNativeCodeComponent}
+          options={{
+            tabBarLabel: 'Native Code Test',
+            tabBarIcon: ({color, size}) => {
+              const image = Platform.select({
+                ios: require('../assets/icons/ios-icon.png'),
+                android: require('../assets/icons/android-icon.png'),
+              });
+
+              return (
+                <Image
+                  style={{tintColor: color, width: size}}
+                  resizeMode="contain"
+                  source={image}
+                />
+              );
+            },
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
+  );
+}
+
+function TestNativeCodeComponent() {
+  const Stack = createStackNavigator();
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Test Native Code"
+        options={({route}) => ({
+          headerTitle: route.params?.name ?? 'Test Native Code',
+        })}
+        component={RunNativeButton}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function RunNativeButton() {
+  return (
+    <Button
+      title="Click Me to Run Native Code!"
+      onPress={Platform.select({
+        ios: () => {
+          NativeModules.CustomAlert.showMessage(
+            'This is from JS'
+          );
+        },
+        android: () =>
+          NativeModules.MyToastExample.show(
+            'This is from JS',
+            NativeModules.MyToastExample.LONG,
+          ),
+      })}
+    />
   );
 }
