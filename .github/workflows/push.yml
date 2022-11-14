@@ -15,6 +15,8 @@ jobs:
       - name: Protect With Jscrambler
         id: jscrambler
         uses: jscrambler/code-integrity-actions/protect@v6
+        env:
+          DEBUG: "true"
         with:
           application-id: ${{ secrets.JSCRAMBLER_APPLICATION_ID }}
           secret-key: ${{ secrets.JSCRAMBLER_SECRET_KEY }}
@@ -28,6 +30,7 @@ jobs:
           source-maps: true
           source-maps-source-content: false
           source-maps-output-path: GitHubAction/Playground/dist-sourcemaps/
+          symbol-table-output-path: GitHubAction/Playground/dist-symbol-table/
 
       ## Upload Artifacts
       - name: Upload Protected Source Code
@@ -41,4 +44,10 @@ jobs:
         with:
           name: source-maps
           path: GitHubAction/Playground/dist-sourcemaps/
+          retention-days: 1
+      - name: Upload symbol table
+        uses: actions/upload-artifact@v3
+        with:
+          name: source-maps
+          path: GitHubAction/Playground/dist-symbol-table/
           retention-days: 1
