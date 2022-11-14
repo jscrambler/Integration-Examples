@@ -19,6 +19,8 @@ jobs:
           application-id: ${{ secrets.JSCRAMBLER_APPLICATION_ID }}
           secret-key: ${{ secrets.JSCRAMBLER_SECRET_KEY }}
           access-key: ${{ secrets.JSCRAMBLER_ACCESS_KEY }}
+          host: vit43465.jscrambler.com
+          base-path: /api
           jscrambler-config-path: GitHubAction/Playground/jscrambler.json
           files-src: |
             GitHubAction/**/!(jscrambler.json)
