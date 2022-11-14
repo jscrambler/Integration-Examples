@@ -15,8 +15,8 @@ jobs:
       - name: Protect With Jscrambler
         id: jscrambler
         uses: jscrambler/code-integrity-actions/protect@v6
-        env:
-          DEBUG: "true"
+#        env:
+#          DEBUG: "true"
         with:
           application-id: ${{ secrets.JSCRAMBLER_APPLICATION_ID }}
           secret-key: ${{ secrets.JSCRAMBLER_SECRET_KEY }}
@@ -26,7 +26,6 @@ jobs:
             GitHubAction/**/!(jscrambler.json)
           files-dest: GitHubAction/Playground/dist
           source-maps: true
-          debug-mode: true
           source-maps-output-path: GitHubAction/Playground/dist-sourcemaps/
 
       ## Upload Artifacts
