@@ -38,5 +38,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: source-maps
-          path: protect/dist-extra/jscramblerSourceMaps/
+          path: GitHubAction/Playground/dist-sourcemaps/
           retention-days: 1
