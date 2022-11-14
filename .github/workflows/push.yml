@@ -9,10 +9,7 @@ jobs:
     name: Protect e2e Test
     environment: production
     steps:
-      - name: ls
-        run: ls -la
-      - name: ls
-        run: ls -la GitHubAction/Playground
+      - uses: actions/checkout@v3
 
       ## Setup Jscrambler GitHub Action
       - name: Protect With Jscrambler
