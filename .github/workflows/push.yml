@@ -48,6 +48,6 @@ jobs:
       - name: Upload symbol table
         uses: actions/upload-artifact@v3
         with:
-          name: source-maps
+          name: symbol-table
           path: GitHubAction/Playground/dist-symbol-table/
           retention-days: 1
