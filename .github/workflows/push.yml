@@ -1,0 +1,41 @@
+on: [push]
+#  push:
+#    tags:
+#      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Protect Playground
+    environment: production
+    steps:
+      - uses: actions/checkout@v3
+
+      ## Setup Jscrambler GitHub Action
+      - name: Protect With Jscrambler
+        id: jscrambler
+        uses: jscrambler/code-integrity-actions/protect@v6
+        with:
+          application-id: ${{ secrets.JSCRAMBLER_APPLICATION_ID }}
+          secret-key: ${{ secrets.JSCRAMBLER_SECRET_KEY }}
+          access-key: ${{ secrets.JSCRAMBLER_ACCESS_KEY }}
+          jscrambler-config-path: GitHubAction/Playground/jscrambler.json
+          files-src: |
+            GitHubAction/**/!(jscrambler.json)
+          files-dest: GitHubAction/Playground/dist
+          source-maps: true
+          source-maps-output-path: GitHubAction/Playground/dist-sourcemaps/
+
+      ## Upload Artifacts
+      - name: Upload Protected Source Code
+        uses: actions/upload-artifact@v3
+        with:
+          name: protected
+          path: GitHubAction/Playground/dist/
+          retention-days: 1
+      - name: Upload source maps
+        uses: actions/upload-artifact@v3
+        with:
+          name: source-maps
+          path: GitHubAction/Playground/dist-sourcemaps/
+          retention-days: 1
