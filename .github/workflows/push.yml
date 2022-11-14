@@ -23,7 +23,7 @@ jobs:
           files-src: |
             GitHubAction/**/!(jscrambler.json)
           files-dest: GitHubAction/Playground/dist
-          source-maps: true
+          source-maps: false
           source-maps-output-path: GitHubAction/Playground/dist-sourcemaps/
 
       ## Upload Artifacts
