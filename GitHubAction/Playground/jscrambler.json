@@ -41,7 +41,10 @@
       "name": "booleanToAnything"
     },
     {
-      "name": "identifiersRenaming"
+      "name": "identifiersRenaming",
+      "options": {
+        "mode": "UNSAFE"
+      }
     },
     {
       "name": "globalVariableIndirection"
