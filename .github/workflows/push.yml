@@ -26,6 +26,7 @@ jobs:
             GitHubAction/**/!(jscrambler.json)
           files-dest: GitHubAction/Playground/dist
           source-maps: true
+          debug-mode: true
           source-maps-output-path: GitHubAction/Playground/dist-sourcemaps/
 
       ## Upload Artifacts
