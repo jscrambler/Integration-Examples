@@ -21,16 +21,12 @@ jobs:
           application-id: ${{ secrets.JSCRAMBLER_APPLICATION_ID }}
           secret-key: ${{ secrets.JSCRAMBLER_SECRET_KEY }}
           access-key: ${{ secrets.JSCRAMBLER_ACCESS_KEY }}
-          host: vit43465.jscrambler.com
-          base-path: /api
           jscrambler-config-path: GitHubAction/Playground/jscrambler.json
           files-src: |
             GitHubAction/**/!(jscrambler.json)
           files-dest: GitHubAction/Playground/dist
           source-maps: true
-          source-maps-source-content: false
           source-maps-output-path: GitHubAction/Playground/dist-sourcemaps/
-          symbol-table-output-path: GitHubAction/Playground/dist-symbol-table/
 
       ## Upload Artifacts
       - name: Upload Protected Source Code
@@ -45,9 +41,9 @@ jobs:
           name: source-maps
           path: GitHubAction/Playground/dist-sourcemaps/
           retention-days: 1
-      - name: Upload symbol table
-        uses: actions/upload-artifact@v3
-        with:
-          name: symbol-table
-          path: GitHubAction/Playground/dist-symbol-table/
-          retention-days: 1
+#      - name: Upload symbol table
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: symbol-table
+#          path: GitHubAction/Playground/dist-symbol-table/
+#          retention-days: 1
