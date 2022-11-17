@@ -10,6 +10,24 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v3
+
+
+      ## Setup Jscrambler GitHub Action
+      - name: Protect With Jscrambler
+        id: jscrambler
+        uses: jscrambler/code-integrity-actions/protect@v6
+        with:
+          application-id: ${{ secrets.JSCRAMBLER_APPLICATION_ID }}
+          secret-key: ${{ secrets.JSCRAMBLER_SECRET_KEY }}
+          access-key: ${{ secrets.JSCRAMBLER_ACCESS_KEY }}
+          jscrambler-config-path: GitHubAction/Playground/jscrambler.json
+          files-src: |
+            GitHubAction/**/!(jscrambler.json)
+          files-dest: GitHubAction/Playground/dist
+          source-maps: true
+          source-maps-output-path: GitHubAction/Playground/dist-sourcemaps/
+
+
       - name: Upload Dist Files
         uses: actions/upload-artifact@v3
         with:
