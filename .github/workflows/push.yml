@@ -11,12 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      ## Setup Jscrambler GitHub Action
+
+      ###################################
+      ## <Setup Jscrambler GitHub Action>
+      ###################################
       - name: Protect With Jscrambler
         id: jscrambler
         uses: jscrambler/code-integrity-actions/protect@v6
-#        env:
-#          DEBUG: "true"
         with:
           application-id: ${{ secrets.JSCRAMBLER_APPLICATION_ID }}
           secret-key: ${{ secrets.JSCRAMBLER_SECRET_KEY }}
@@ -27,8 +28,11 @@ jobs:
           files-dest: GitHubAction/Playground/dist
           source-maps: true
           source-maps-output-path: GitHubAction/Playground/dist-sourcemaps/
+      ####################################
+      ## </Setup Jscrambler GitHub Action>
+      ####################################
 
-      ## Upload Artifacts
+
       - name: Upload Protected Source Code
         uses: actions/upload-artifact@v3
         with:
@@ -41,9 +45,3 @@ jobs:
           name: source-maps
           path: GitHubAction/Playground/dist-sourcemaps/
           retention-days: 1
-#      - name: Upload symbol table
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: symbol-table
-#          path: GitHubAction/Playground/dist-symbol-table/
-#          retention-days: 1
