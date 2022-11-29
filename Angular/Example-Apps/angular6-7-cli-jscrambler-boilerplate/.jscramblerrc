@@ -1,9 +1,9 @@
 {
   "keys": {
-    "accessKey": "A2CC8452FCDCF7B4938E1690CBDB31FE2063E2D5",
-    "secretKey": "4F7FFF612C338015B6FFF0F5BA98F7E1DD94997B"
+    "accessKey": <ACCESS_KEY_HERE>,
+    "secretKey": <SECRET_KEY_HERE>
   },
-  "applicationId": "5bf5386403c027001664b62d",
+  "applicationId": <APPLICATION_ID_HERE>,
   "filesSrc": [
    "./dist/**/*.html",
    "./dist/**/*.js"
