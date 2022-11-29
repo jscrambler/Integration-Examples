@@ -1,0 +1,31 @@
+{
+  "name": "GroceryList",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "1.3.3",
+    "react": "16.8.3",
+    "react-native": "0.62.3",
+    "react-native-gesture-handler": "1.1.0",
+    "react-navigation": "3.9.1",
+    "uuid": "3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
+    "babel-jest": "^24.7.1",
+    "eslint": "^5.16.0",
+    "eslint-config-handlebarlabs": "^0.0.3",
+    "jest": "^24.7.1",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "prettier": "^1.17.0",
+    "react-test-renderer": "16.8.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

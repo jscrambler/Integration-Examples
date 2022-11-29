@@ -1,0 +1,24 @@
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Protect Playground
+    environment: production
+    steps:
+      - uses: actions/checkout@v3
+      - name: Upload Dist Files
+        uses: actions/upload-artifact@v3
+        with:
+          name: protected
+          path: GitHubAction/Playground/dist/
+          retention-days: 1
+      - name: Upload source maps
+        uses: actions/upload-artifact@v3
+        with:
+          name: source-maps
+          path: GitHubAction/Playground/dist-sourcemaps/
+          retention-days: 1
