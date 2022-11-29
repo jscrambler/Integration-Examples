@@ -26,7 +26,6 @@ npm start
 
 Check if everything is in place by running the app on `localhost:3000`.
 
-
 ## Configure Jscrambler
 
 Create a `.jscramblerrc` file on the project's root folder.
@@ -107,7 +106,7 @@ Open `jscrambler.json` and copy all its contents to `.jscramblerrc`. Add two new
    "es7": false
  },
  "useRecommendedOrder": true,
- "jscramblerVersion": "5.<X>"
+ "jscramblerVersion": "6.<X>"
 }
 ```
 

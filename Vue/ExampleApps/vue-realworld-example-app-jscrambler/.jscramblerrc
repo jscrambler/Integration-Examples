@@ -1,0 +1,77 @@
+{
+  "keys": {
+    "accessKey": < ACCESS_KEY_HERE > ,
+    "secretKey": < SECRET_KEY_HERE >
+  },
+  "applicationId": < APP_ID_HERE > ,
+  "filesSrc": [
+    "./dist/**/*.html",
+    "./dist/**/*.js"
+  ],
+  "filesDest": "./",
+  "params": [{
+      "name": "objectPropertiesSparsing"
+    },
+    {
+      "name": "variableMasking"
+    },
+    {
+      "name": "whitespaceRemoval"
+    },
+    {
+      "name": "identifiersRenaming",
+      "options": {
+        "mode": "SAFEST"
+      }
+    },
+    {
+      "name": "dotToBracketNotation"
+    },
+    {
+      "name": "stringConcealing"
+    },
+    {
+      "name": "functionReordering"
+    },
+    {
+      "options": {
+        "freq": 1,
+        "features": [
+          "opaqueFunctions"
+        ]
+      },
+      "name": "functionOutlining"
+    },
+    {
+      "name": "propertyKeysObfuscation",
+      "options": {
+        "encoding": [
+          "hexadecimal"
+        ]
+      }
+    },
+    {
+      "name": "regexObfuscation"
+    },
+    {
+      "name": "booleanToAnything"
+    }
+  ],
+  "areSubscribersOrdered": false,
+  "applicationTypes": {
+    "webBrowserApp": true,
+    "desktopApp": false,
+    "serverApp": false,
+    "hybridMobileApp": false,
+    "javascriptNativeApp": false,
+    "html5GameApp": false
+  },
+  "languageSpecifications": {
+    "es5": true,
+    "es6": false,
+    "es7": false
+  },
+  "useRecommendedOrder": true,
+  "jscramblerVersion": "6.1",
+  "tolerateMinification": true
+}
