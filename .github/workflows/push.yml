@@ -15,11 +15,11 @@ jobs:
       ## Setup Jscrambler GitHub Action
       - name: Protect With Jscrambler
         id: jscrambler
-        uses: jscrambler/code-integrity-actions/protect@v6
+        uses: jscrambler/code-integrity-actions/protect@f3abdc9bd3f9183555eae093e5891f8c86f90979
         with:
-          application-id: ${{ secrets.JSCRAMBLER_APPLICATION_ID }}
-          secret-key: ${{ secrets.JSCRAMBLER_SECRET_KEY }}
-          access-key: ${{ secrets.JSCRAMBLER_ACCESS_KEY }}
+          application-id: ${{ secrets.JSCRAMBLER_APPLICATION_ID }} # This value should be created within your Jscrambler account
+          secret-key: ${{ secrets.JSCRAMBLER_SECRET_KEY }} # This value can be found in your Jscrambler account
+          access-key: ${{ secrets.JSCRAMBLER_ACCESS_KEY }} # This value can be found in your Jscrambler account
           jscrambler-config-path: GitHubAction/Playground/jscrambler.json
           files-src: |
             GitHubAction/**/!(jscrambler.json)
