@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Protect Playground
     environment: production
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v3
 
