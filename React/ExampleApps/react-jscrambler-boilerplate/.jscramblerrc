@@ -1,9 +1,9 @@
 {
   "keys": {
-    "accessKey": "<ACCESS_KEY_HERE>",
-    "secretKey": "<SECRET_KEY_HERE>"
+    "accessKey": "${env.ACCESS_KEY}",
+    "secretKey": "${env.SECRET_KEY}"
   },
-  "applicationId": "<APP_ID_HERE>",
+  "applicationId": "${env.APPLICATION_ID}",
   "filesSrc": [
    "./build/**/*.html",
    "./build/**/*.js"
@@ -65,5 +65,5 @@
     "es7": false
   },
   "useRecommendedOrder": true,
-  "jscramblerVersion": "6.0"
+  "jscramblerVersion": "stable"
 }

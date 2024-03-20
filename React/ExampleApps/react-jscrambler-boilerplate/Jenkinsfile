@@ -1,0 +1,22 @@
+/*
+ See the documentation for more options:
+ https://github.com/jenkins-infra/pipeline-library/
+*/
+pipeline {
+  agent any 
+  options {
+      skipStagesAfterUnstable()
+  }
+  tools {
+    nodejs 'NodeJS Instalation'
+  }
+  stages {
+    stage('Jscrambler') {
+      steps {
+        script {
+          sh "cd React/ExampleApps/react-jscrambler-boilerplate && npm i && npm run build"
+        }
+      }
+    }
+  }
+}
